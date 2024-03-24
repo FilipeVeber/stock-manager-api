@@ -13,6 +13,19 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<WalletService>();
 builder.Services.AddHttpClient<IFinnHubClient, FinnHubClient>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
