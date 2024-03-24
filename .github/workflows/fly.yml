@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - master
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  FLY_PROJECT_PATH: WebApi
 jobs:
   deploy:
     name: Deploy app
@@ -12,7 +15,4 @@ jobs:
         uses: actions/checkout@master
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: cd WebApi
       - run: flyctl deploy --remote-only -a web-api
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
