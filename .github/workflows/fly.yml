@@ -15,5 +15,5 @@ jobs:
         uses: actions/checkout@master
 
       - uses: superfly/flyctl-actions@1.0
-      with:
-        args: "deploy"
+        with:
+          args: "deploy"
