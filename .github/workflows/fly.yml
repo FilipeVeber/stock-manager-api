@@ -14,5 +14,6 @@ jobs:
       - name: Checking out
         uses: actions/checkout@master
 
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only -a web-api
+      - uses: superfly/flyctl-actions@1.0
+      with:
+        args: "deploy"
